@@ -25,11 +25,13 @@
 <p>需要使用<code>hexo new publish &quot;xxx&quot;</code>使其发布成功</p>
 </blockquote>
 <h2 id="图片配置"><a href="#图片配置" class="headerlink" title="图片配置"></a>图片配置</h2><h3 id="本地方式"><a href="#本地方式" class="headerlink" title="本地方式"></a>本地方式</h3><p>本来以为直接使用本地图片就可以上传到博客上，甚至配置了<code>hexo-asset-image</code>。</p>
-<h3 id="缺陷"><a href="#缺陷" class="headerlink" title="缺陷"></a>缺陷</h3><p>然而，生成一个<code>md</code>文件就要生成一个相应文件夹实在离谱，文章一多岂不是都是文件夹？而且，<code>--- ---</code>中间如果要配置<code>cover</code>或<code>top_img</code>无法使用<code>markdown</code>，只能用<code>https</code>方式，那么本地链接也无法使用了。</p>
+<p>然而，生成一个<code>md</code>文件就要生成一个相应文件夹实在离谱，文章一多岂不是都是文件夹？而且，<code>--- ---</code>中间如果要配置<code>cover</code>或<code>top_img</code>无法使用<code>markdown</code>，只能用<code>https</code>方式，那么本地链接也无法使用了。</p>
 <h3 id="图床方式"><a href="#图床方式" class="headerlink" title="图床方式"></a>图床方式</h3><p>唯一的方法便是使用图床功能，可以使用<code>gitee</code>或者<code>阿里云OSS</code>。</p>
-<h4 id="gitee"><a href="#gitee" class="headerlink" title="gitee"></a>gitee</h4><p>曾经崩过一次，而且注册需要身份证和手持身份证照片，担心隐私安全问题，暂时放弃</p>
-<h4 id="阿里云OSS"><a href="#阿里云OSS" class="headerlink" title="阿里云OSS"></a>阿里云OSS</h4><p>需要一些小钱，配置比<code>gitee</code>麻烦不少，但是一劳永逸，打算选择此方式配置图片</p>
-<h2 id="音乐配置"><a href="#音乐配置" class="headerlink" title="音乐配置"></a>音乐配置</h2><h3 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h3><p>首先下载hexo-tag-aplayer插件</p>
+<ul>
+<li><code>gitee</code>曾经崩过一次，而且注册需要身份证和手持身份证照片，担心隐私安全问题，暂时放弃。</li>
+<li><code>阿里云OSS</code>需要一些小钱，配置比<code>gitee</code>麻烦不少，但是一劳永逸，打算选择此方式配置图片</li>
+</ul>
+<h3 id="阿里云OSS"><a href="#阿里云OSS" class="headerlink" title="阿里云OSS"></a>阿里云OSS</h3><h2 id="音乐配置"><a href="#音乐配置" class="headerlink" title="音乐配置"></a>音乐配置</h2><h3 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h3><p>首先下载hexo-tag-aplayer插件</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-tag-aplayer</span><br><span class="line"><span class="comment">#比播放器外链更稳定，配置好很香</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="配置修改"><a href="#配置修改" class="headerlink" title="配置修改"></a>配置修改</h3><p>全局修改，防止插入重复资源</p>
