@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>blog部署</title>
+    <url>/2022/10/05/blog%E9%83%A8%E7%BD%B2/</url>
+    <content><![CDATA[<p>第一次自己建博客，操作不够熟练，此贴用于记录一些操作。</p>
+<h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><h3 id="生成静态文件"><a href="#生成静态文件" class="headerlink" title="生成静态文件"></a>生成静态文件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo g </span><br><span class="line"><span class="comment">#hexo generate的简写</span></span><br><span class="line"><span class="comment">#生成静态文件</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="本地部署"><a href="#本地部署" class="headerlink" title="本地部署"></a>本地部署</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo s</span><br><span class="line"><span class="comment">#hexo server的简写</span></span><br><span class="line"><span class="comment">#默认使用4000端口</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="清除缓存"><a href="#清除缓存" class="headerlink" title="清除缓存"></a>清除缓存</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line"><span class="comment">#防止更新没更新上</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="远程部署"><a href="#远程部署" class="headerlink" title="远程部署"></a>远程部署</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo d</span><br><span class="line"><span class="comment">#hexo deploy的简写</span></span><br><span class="line"><span class="comment">#部署到github</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>需要<code>hexo g</code>先生成静态文件</p>
+</blockquote>
+<h3 id="新建"><a href="#新建" class="headerlink" title="新建"></a>新建</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new <span class="string">&quot;xxx&quot;</span></span><br><span class="line"><span class="comment">#使用typora编辑文章</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="草稿"><a href="#草稿" class="headerlink" title="草稿"></a>草稿</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new draft &quot;xxx&quot;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>需要使用<code>hexo new publish &quot;xxx&quot;</code>使其发布成功</p>
+</blockquote>
+<h2 id="图片配置"><a href="#图片配置" class="headerlink" title="图片配置"></a>图片配置</h2><h3 id="本地方式"><a href="#本地方式" class="headerlink" title="本地方式"></a>本地方式</h3><p>本来以为直接使用本地图片就可以上传到博客上，甚至配置了<code>hexo-asset-image</code>。</p>
+<h3 id="缺陷"><a href="#缺陷" class="headerlink" title="缺陷"></a>缺陷</h3><p>然而，生成一个<code>md</code>文件就要生成一个相应文件夹实在离谱，文章一多岂不是都是文件夹？而且，<code>--- ---</code>中间如果要配置<code>cover</code>或<code>top_img</code>无法使用<code>markdown</code>，只能用<code>https</code>方式，那么本地链接也无法使用了。</p>
+<h3 id="图床方式"><a href="#图床方式" class="headerlink" title="图床方式"></a>图床方式</h3><p>唯一的方法便是使用图床功能，可以使用<code>gitee</code>或者<code>阿里云OSS</code>。</p>
+<h4 id="gitee"><a href="#gitee" class="headerlink" title="gitee"></a>gitee</h4><p>曾经崩过一次，而且注册需要身份证和手持身份证照片，担心隐私安全问题，暂时放弃</p>
+<h4 id="阿里云OSS"><a href="#阿里云OSS" class="headerlink" title="阿里云OSS"></a>阿里云OSS</h4><p>需要一些小钱，配置比<code>gitee</code>麻烦不少，但是一劳永逸，打算选择此方式配置图片</p>
+<h2 id="音乐配置"><a href="#音乐配置" class="headerlink" title="音乐配置"></a>音乐配置</h2><h3 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h3><p>首先下载hexo-tag-aplayer插件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-tag-aplayer</span><br><span class="line"><span class="comment">#比播放器外链更稳定，配置好很香</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="配置修改"><a href="#配置修改" class="headerlink" title="配置修改"></a>配置修改</h3><p>全局修改，防止插入重复资源</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">aplayer:</span></span><br><span class="line">  <span class="attr">meting:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">asset_inject:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>这部分hexo配置没有，需要主动写入</p>
+</blockquote>
+<p>主题部分修改</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Inject the css and script (aplayer/meting)</span></span><br><span class="line"><span class="attr">aplayerInject:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">per_page:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="插入底部音乐"><a href="#插入底部音乐" class="headerlink" title="插入底部音乐"></a>插入底部音乐</h3><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">inject:</span></span><br><span class="line">  <span class="attr">head:</span></span><br><span class="line">  <span class="attr">bottom:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&lt;div</span> <span class="string">class=&quot;aplayer</span> <span class="literal">no</span><span class="string">-destroy&quot;</span> <span class="string">data-id=&quot;60198&quot;</span> <span class="string">data-server=&quot;netease&quot;</span> <span class="string">data-type=&quot;playlist&quot;</span> <span class="string">data-fixed=&quot;true&quot;</span> <span class="string">data-autoplay=&quot;true&quot;&gt;</span> <span class="string">&lt;/div&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>server</code>设置为网易云音乐</li>
+<li><code>data-id</code>可通过歌单分享链接获得</li>
+</ul>
+<blockquote>
+<p>如果想要切换页面，音乐不中断，<code>pjax</code>设为<code>true</code></p>
+</blockquote>
+]]></content>
+  </entry>
+</search>
